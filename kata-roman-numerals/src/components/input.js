@@ -29,15 +29,49 @@ export function chiffresRomains(chiffreArabe) {
     return chiffreRomain;
 
 }
+export function chiffresArabes(chiffreRomain) {
+    const romainToArabeMap = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    };
+
+    let chiffreArabe = 0;
+    let prevValue = 0;
+
+    for (let i = chiffreRomain.length - 1; i >= 0; i--) {
+        const currentRomain = chiffreRomain[i];
+        const currentValue = romainToArabeMap[currentRomain];
+
+        if (currentValue < prevValue) {
+            chiffreArabe -= currentValue;
+        } else {
+            chiffreArabe += currentValue;
+        }
+
+        prevValue = currentValue;
+    }
+
+    return chiffreArabe;
+}
 
 
 export default function Form() {
     const [nombreArabe, setNombreArabe] = useState('');
     const [nombreRomain, setNombreRomain] = useState('');
 
-    function handleOnclick() {
+    function handleConvertToRoman() {
         const chiffreRomain = chiffresRomains(Number(nombreArabe));
-        setNombreRomain(chiffreRomain); // Mettez à jour le nombre romain dans l'état
+        setNombreRomain(chiffreRomain);
+    }
+
+    function handleConvertToArabic() {
+        const chiffreArabe = chiffresArabes(nombreRomain);
+        setNombreArabe(chiffreArabe);
     }
 
     return (
@@ -49,7 +83,16 @@ export default function Form() {
                     onChange={e => setNombreArabe(e.target.value)}
                     type="number"
                 />
-                <button onClick={handleOnclick}>Convertir</button>
+                <button onClick={handleConvertToRoman}>Convertir en romain</button>
+            </label>
+
+            <label>
+                Nombre romain :
+                <input
+                    value={nombreRomain}
+                    onChange={e => setNombreRomain(e.target.value)}
+                />
+                <button onClick={handleConvertToArabic}>Convertir en arabe</button>
             </label>
 
             {nombreRomain &&
