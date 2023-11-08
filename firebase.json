@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "kata-roman-numerals/public",
     "ignore": [
       "firebase.json",
       "**/.*",
