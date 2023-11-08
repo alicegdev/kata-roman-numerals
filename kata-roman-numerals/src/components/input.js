@@ -27,7 +27,6 @@ export function chiffresRomains(chiffreArabe) {
     }
 
     return chiffreRomain;
-}
 
 }
 
