@@ -1,0 +1,59 @@
+
+
+/* Conteneur du formulaire */
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Libellé des champs */
+  .label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Champ d'entrée */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Bouton de conversion */
+  .convert-button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .convert-button:hover {
+    background-color: #0055aa;
+  }
+  
+  /* Résultat */
+  .result-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Style pour les résultats d'erreur, si nécessaire */
+  .error-text {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  

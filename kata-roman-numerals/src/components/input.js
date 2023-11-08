@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './input.css';
 
 export function chiffresRomains(chiffreArabe) {
     let chiffreRomain = "";
@@ -75,29 +76,36 @@ export default function Form() {
     }
 
     return (
-        <>
-            <label>
-                Nombre arabe :
-                <input
-                    value={nombreArabe}
-                    onChange={e => setNombreArabe(e.target.value)}
-                    type="number"
-                />
-                <button onClick={handleConvertToRoman}>Convertir en romain</button>
-            </label>
+        <div className="form-container">
+          <div className="input-container">
+            <label className="label">Nombre arabe :</label>
+            <input
+              className="input-field"
+              value={nombreArabe}
+              onChange={(e) => setNombreArabe(e.target.value)}
+              type="number"
+            />
+            <button className="convert-button" onClick={handleConvertToRoman}>
+              Convertir en chiffre romain
+            </button>
+          </div>
+    
+          <div className="input-container">
+            <label className="label">Nombre romain :</label>
+            <input
+              className="input-field"
+              value={nombreRomain}
+              onChange={(e) => setNombreRomain(e.target.value)}
+            />
+            <button className="convert-button" onClick={handleConvertToArabic}>
+              Convertir en chiffre arabe
+            </button>
+          </div>
+    
+          {nombreRomain && (
+            <p className="result-text">Le nombre romain correspondant est {nombreRomain}.</p>
+          )}
+        </div>
+      );
 
-            <label>
-                Nombre romain :
-                <input
-                    value={nombreRomain}
-                    onChange={e => setNombreRomain(e.target.value)}
-                />
-                <button onClick={handleConvertToArabic}>Convertir en arabe</button>
-            </label>
-
-            {nombreRomain &&
-                <p>Le nombre romain correspondant est {nombreRomain}.</p>
-            }
-        </>
-    );
 }
