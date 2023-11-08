@@ -1,17 +1,33 @@
 import { useState } from 'react';
-
 export function chiffresRomains(chiffreArabe) {
     let chiffreRomain = "";
 
-    if (chiffreArabe === 1) {
-        chiffreRomain = "I";
-    }
-    if (chiffreArabe === 5) {
-        chiffreRomain = "V";
+    const correspondances = [
+        { arabe: 1000, romain: "M" },
+        { arabe: 900, romain: "CM" },
+        { arabe: 500, romain: "D" },
+        { arabe: 400, romain: "CD" },
+        { arabe: 100, romain: "C" },
+        { arabe: 90, romain: "XC" },
+        { arabe: 50, romain: "L" },
+        { arabe: 40, romain: "XL" },
+        { arabe: 10, romain: "X" },
+        { arabe: 9, romain: "IX" },
+        { arabe: 5, romain: "V" },
+        { arabe: 4, romain: "IV" },
+        { arabe: 1, romain: "I" }
+    ];
+
+    for (const correspondance of correspondances) {
+        while (chiffreArabe >= correspondance.arabe) {
+            chiffreRomain += correspondance.romain;
+            chiffreArabe -= correspondance.arabe;
+        }
     }
 
     return chiffreRomain;
 }
+
 
 export default function Form() {
     const [nombreArabe, setNombreArabe] = useState('');
