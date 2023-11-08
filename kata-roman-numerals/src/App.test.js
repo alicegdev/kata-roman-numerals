@@ -1,35 +1,43 @@
 import { chiffresRomains } from "./components/input";
 
 describe('Test de la fonction chiffresRomains', () => {
-    it('Devrait retourner "I" pour 1', () => {
-        const resultat = chiffresRomains(1);
-        expect(resultat).toBe("I");
-    });
+  it('Devrait retourner "I" pour 1', () => {
+      const resultat = chiffresRomains(1);
+      expect(resultat).toBe("I");
+  });
 
-    it('Devrait retourner "V" pour 5', () => {
-        const resultat = chiffresRomains(5);
-        expect(resultat).toBe("V");
-    });
+  it('Devrait retourner "IV" pour 4', () => {
+      const resultat = chiffresRomains(4);
+      expect(resultat).toBe("IV");
+  });
 
-    it('Devrait retourner "IV" pour 4', () => {
-        const resultat = chiffresRomains(4);
-        expect(resultat).toBe("IV");
-    });
+  it('Devrait retourner "IX" pour 9', () => {
+      const resultat = chiffresRomains(9);
+      expect(resultat).toBe("IX");
+  });
 
-    it('Devrait retourner "X" pour 10', () => {
-        const resultat = chiffresRomains(10);
-        expect(resultat).toBe("X");
-    });
+  it('Devrait retourner "XL" pour 40', () => {
+      const resultat = chiffresRomains(40);
+      expect(resultat).toBe("XL");
+  });
 
-    it('Devrait retourner "IX" pour 9', () => {
-        const resultat = chiffresRomains(9);
-        expect(resultat).toBe("IX");
-    });
+  it('Devrait retourner "XC" pour 90', () => {
+      const resultat = chiffresRomains(90);
+      expect(resultat).toBe("XC");
+  });
 
-    it('Devrait retourner "XX" pour 20', () => {
-        const resultat = chiffresRomains(20);
-        expect(resultat).toBe("XX");
-    });
+  it('Devrait retourner "CD" pour 400', () => {
+      const resultat = chiffresRomains(400);
+      expect(resultat).toBe("CD");
+  });
 
-    // Ajoutez d'autres tests pour d'autres chiffres arabes et leurs conversions attendues ici
+  it('Devrait retourner "CM" pour 900', () => {
+      const resultat = chiffresRomains(900);
+      expect(resultat).toBe("CM");
+  });
+
+  it('Devrait retourner "M" pour 1000', () => {
+      const resultat = chiffresRomains(1000);
+      expect(resultat).toBe("M");
+  });
 });
