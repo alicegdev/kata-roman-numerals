@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import { chiffresRomains } from './components/input';
+
+
+describe('Test de la fonction chiffresRomains', () => {
+  it('Devrait retourner "I" pour 1', () => {
+      const resultat = chiffresRomains(1);
+      expect(resultat).toBe("I");
+  });
+
+  it('Devrait retourner "V" pour 5', () => {
+      const resultat = chiffresRomains(5);
+      expect(resultat).toBe("V");
+  });
 });
